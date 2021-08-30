@@ -1,15 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { View, Text, Touchable, TouchableOpacity} from 'react-native';
+import { View, Text, TouchableOpacity} from 'react-native';
 import { GameEngine } from 'react-native-game-engine';
 import entities from './entities';
 import Physics from './physics';
+import WaveForm from 'react-native-audiowaveform';
 
 
 export default function App() {
+  playAudio=()=>{
+    console.log("salfsldflskdfjsldfslşdfksşdlf");
+    return(
+      <WaveForm 
+
+          style = {{
+            width:'100%',
+            height:20
+          }}
+          play={true}
+          source={require('./components/sesBir.mp3')}  
+
+      >
+      </WaveForm>
+      )
+  }
   const [running, setRunning] = useState(false)
   const [gameEngine, setGameEngine] = useState(null)
   const [currentPoints, setCurrentPoints] = useState(0)
+  
   useEffect(() => {
     setRunning(true)
   }, [])
@@ -29,6 +47,7 @@ export default function App() {
               gameEngine.stop()
               break;
             case 'new_point':
+              this.playAudio()
               setCurrentPoints(currentPoints + 1)
               break;
           }

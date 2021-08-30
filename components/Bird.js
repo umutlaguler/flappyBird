@@ -1,6 +1,6 @@
 import Matter from 'matter-js'
 import React from 'react'
-import { View } from 'react-native';
+import { View , Image} from 'react-native';
 
 const Bird = props => {
     const widthBody = props.body.bounds.max.x - props.body.bounds.min.x
@@ -20,7 +20,13 @@ const Bird = props => {
             top: yBody,
             width: widthBody,
             height: heightBody
-        }}/>
+        }}>
+             <Image
+          style={{ width: widthBody,
+            height: heightBody,}}
+            source={require('./zeyno.png')}
+          />
+        </View>
     )
 
 }
